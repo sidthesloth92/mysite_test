@@ -1,0 +1,271 @@
+@import 'reset';
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- MIXINS --------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+@mixin transform-origin($x-value:center, $y-value:center) {
+    -webkit-transform-origin: $x-value $y-value;
+    -moz-transform-origin: $x-value $y-value;
+    -ms-transform-origin: $x-value $y-value;
+    -o-transform-origin: $x-value $y-value;
+    transform-origin: $x-value $y-value;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+    -transform: $value;
+}
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- PAGE COLORS ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+$fixed-navbar-background: rgba(5, 5, 5, 0.8);
+$sidebar-background: $fixed-navbar-background;
+$header-background: orange;
+$main-section-background: coral;
+$footer-background: mediumslateblue;
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- DEVICE WIDTHS -------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+$mobile-width: 600px;
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*----------------------------------------- CONTAINER STYLING  ------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Manifesto';
+    src: url(../fonts/manifesto.ttf) format('truetype');
+}
+
+body {
+    background-image: url('../img/stars_9.jpg');
+    background-size: cover;  
+}
+
+.container {
+    /*-------------------------------------------------------------------------------------------------*/
+    /*----------------------------------------- MAIN NAVBAR STYLING -----------------------------------*/
+    /*-------------------------------------------------------------------------------------------------*/
+    
+    perspective: 500px;
+    .main_body_container {
+        overflow: scroll;
+        transition: .3s all ease-out;
+        .fixed_navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: $fixed-navbar-background;
+            box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            .logo {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-image: url('../img/logo.png');
+                background-size: 50px 50px;
+                background-repeat: no-repeat;
+                background-position-y: -1px;
+                margin: 5px auto 0px;
+            }
+            .navbar_menu_entry {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                background: url(../img/icons/menu.png);
+                cursor: pointer;
+            }
+            @media screen and (min-width: $mobile-width + 1) {
+                .navbar_menu_entry {
+                    display: none;
+                }
+            }
+        }
+        /*-------------------------------------------------------------------------------------------------*/
+        /*-------------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------- REST OF BODY --------------------------------------*/
+        /*-------------------------------------------------------------------------------------------------*/
+        
+        .rest_of_body {
+            /*-------------------------------------------------------------------------------------------------*/
+            /*-------------------------------------------- HEADER STYLING -------------------------------------*/
+            /*-------------------------------------------------------------------------------------------------*/
+            
+            header {
+                background: rgba(0, 0, 0, 0.2);
+                height: 500px;
+                margin-top: 60px;
+                -webkit-filter: grayscale(1);
+            }
+            /*-------------------------------------------------------------------------------------------------*/
+            /*-------------------------------------------------------------------------------------------------*/
+            /*-------------------------------------------- MAIN SECTION ---------------------------------------*/
+            /*-------------------------------------------------------------------------------------------------*/
+            
+            .main_section {
+                background: $main-section-background;
+                height: 500px;
+            }
+            /*-------------------------------------------------------------------------------------------------*/
+            /*-------------------------------------------------------------------------------------------------*/
+            /*-------------------------------------------- FOOTER STYLING -------------------------------------*/
+            /*-------------------------------------------------------------------------------------------------*/
+            
+            footer {
+                background: $footer-background;
+                height: 100px;
+            }
+        }
+    }
+    /*-------------------------------------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------*/
+    /*------------------------------------------------ SIDE BAR ---------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------*/
+    
+    .sidebar {
+        position: fixed;
+        color: white;
+        font-face: 'Manifesto';
+        font-family: 'Manifesto';
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        .sidebar {
+            width: 100%;
+            height: 100%;
+            left: -100%;
+            top: 0px;
+            background: rgba(0, 0, 0, 0.1);
+            transition: .3s all ease-out;
+            .side_menu {
+                width: 50%;
+                height: 100%;
+                background: $sidebar-background;
+                box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+                border-right: 3px solid white;
+                .navbar_menu_back_button {
+                    display: block;
+                    float: right;
+                    background-image: url(../img/icons/cancel.png);
+                    margin: 10px;
+                    cursor: pointer;
+                    margin-bottom: 50px;
+                }
+
+                .navbar_item_icon {
+                    margin-right: 15px;
+                    vertical-align: sub;
+                }
+
+                .sidebar_list_left {
+                    margin-top: 30px;
+                    clear: both;
+                }
+                .sidebar_list_right {}
+                .navbar_items {
+                    display: block;
+                    margin: 15px;
+                    line-height: 30px;
+                    font-size: 14px;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+    @media screen and (min-width: $mobile-width + 1) {
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0);
+            box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            .side_menu {
+                .navbar_menu_back_button {
+                    display: none;
+                }
+
+                .navbar_item_icon {
+                    display: none;
+                }
+
+                ul {
+                    margin: 16px 0px;
+                }
+                .navbar_items {
+                    display: inline-block;
+                    padding: 0px 15px;
+                    line-height: 30px;
+                    font-size: 20px;
+
+                }
+                .sidebar_list_left {
+                    width: 45%;
+                    float: left;
+                    .navbar_items {
+                        float: right;
+                    }
+                }
+                .sidebar_list_right {
+                    width: 45%;
+                    float: right;
+                    .navbar_items {}
+                }
+            }
+        }
+    }
+}
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- GENERAL -------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px !important;
+    background-repeat: no-repeat;
+}
+
+.about_icon {
+    background-image: url(../img/icons/user_1.png);
+}
+
+.projects_icon {
+    background-image: url(../img/icons/projects.png);
+}
+
+.blog_icon {
+    background-image: url(../img/icons/blog.png);
+}
+
+.contact_icon {
+    background-image: url(../img/icons/contact.png);
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- ACTIONS -------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.push_back {
+    pointer-events: none;
+    @include transform-origin(right, center);
+    @include transform(translateX(100px) rotateY(-25deg) scale(0.7));
+}
+
+.sidebar_show {
+    left: 0px !important;
+}
+/*-------------------------------------------------------------------------------------------------*/

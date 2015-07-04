@@ -1,0 +1,247 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+  box-sizing: border-box; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- MIXINS --------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- PAGE COLORS ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- DEVICE WIDTHS -------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*----------------------------------------- CONTAINER STYLING  ------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'Manifesto';
+  src: url(../fonts/manifesto.ttf) format("truetype"); }
+body {
+  background-image: url("../img/stars_9.jpg");
+  background-size: cover; }
+
+.container {
+  /*-------------------------------------------------------------------------------------------------*/
+  /*----------------------------------------- MAIN NAVBAR STYLING -----------------------------------*/
+  /*-------------------------------------------------------------------------------------------------*/
+  perspective: 500px;
+  /*-------------------------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------------------------------*/
+  /*------------------------------------------------ SIDE BAR ---------------------------------------*/
+  /*-------------------------------------------------------------------------------------------------*/ }
+  .container .main_body_container {
+    overflow: scroll;
+    transition: .3s all ease-out;
+    /*-------------------------------------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------- REST OF BODY --------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------*/ }
+    .container .main_body_container .fixed_navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(5, 5, 5, 0.8);
+      box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+      text-align: center; }
+      .container .main_body_container .fixed_navbar .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url("../img/logo.png");
+        background-size: 50px 50px;
+        background-repeat: no-repeat;
+        background-position-y: -1px;
+        margin: 5px auto 0px; }
+      .container .main_body_container .fixed_navbar .navbar_menu_entry {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: url(../img/icons/menu.png);
+        cursor: pointer; }
+      @media screen and (min-width: 601px) {
+        .container .main_body_container .fixed_navbar .navbar_menu_entry {
+          display: none; } }
+    .container .main_body_container .rest_of_body {
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------- HEADER STYLING -------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------- MAIN SECTION ---------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/
+      /*-------------------------------------------- FOOTER STYLING -------------------------------------*/
+      /*-------------------------------------------------------------------------------------------------*/ }
+      .container .main_body_container .rest_of_body header {
+        background: rgba(0, 0, 0, 0.2);
+        height: 500px;
+        margin-top: 60px;
+        -webkit-filter: grayscale(1); }
+      .container .main_body_container .rest_of_body .main_section {
+        background: coral;
+        height: 500px; }
+      .container .main_body_container .rest_of_body footer {
+        background: mediumslateblue;
+        height: 100px; }
+  .container .sidebar {
+    position: fixed;
+    color: white;
+    font-face: 'Manifesto';
+    font-family: 'Manifesto'; }
+  @media screen and (max-width: 600px) {
+    .container .sidebar {
+      width: 100%;
+      height: 100%;
+      left: -100%;
+      top: 0px;
+      background: rgba(0, 0, 0, 0.1);
+      transition: .3s all ease-out; }
+      .container .sidebar .side_menu {
+        width: 50%;
+        height: 100%;
+        background: rgba(5, 5, 5, 0.8);
+        box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+        border-right: 3px solid white; }
+        .container .sidebar .side_menu .navbar_menu_back_button {
+          display: block;
+          float: right;
+          background-image: url(../img/icons/cancel.png);
+          margin: 10px;
+          cursor: pointer;
+          margin-bottom: 50px; }
+        .container .sidebar .side_menu .navbar_item_icon {
+          margin-right: 15px;
+          vertical-align: sub; }
+        .container .sidebar .side_menu .sidebar_list_left {
+          margin-top: 30px;
+          clear: both; }
+        .container .sidebar .side_menu .navbar_items {
+          display: block;
+          margin: 15px;
+          line-height: 30px;
+          font-size: 14px;
+          vertical-align: top; } }
+  @media screen and (min-width: 601px) {
+    .container .sidebar {
+      width: 100%;
+      height: 60px;
+      top: 0;
+      left: 0;
+      background: transparent;
+      box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5); }
+      .container .sidebar .side_menu .navbar_menu_back_button {
+        display: none; }
+      .container .sidebar .side_menu .navbar_item_icon {
+        display: none; }
+      .container .sidebar .side_menu ul {
+        margin: 16px 0px; }
+      .container .sidebar .side_menu .navbar_items {
+        display: inline-block;
+        padding: 0px 15px;
+        line-height: 30px;
+        font-size: 20px; }
+      .container .sidebar .side_menu .sidebar_list_left {
+        width: 45%;
+        float: left; }
+        .container .sidebar .side_menu .sidebar_list_left .navbar_items {
+          float: right; }
+      .container .sidebar .side_menu .sidebar_list_right {
+        width: 45%;
+        float: right; } }
+
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- GENERAL -------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px !important;
+  background-repeat: no-repeat; }
+
+.about_icon {
+  background-image: url(../img/icons/user_1.png); }
+
+.projects_icon {
+  background-image: url(../img/icons/projects.png); }
+
+.blog_icon {
+  background-image: url(../img/icons/blog.png); }
+
+.contact_icon {
+  background-image: url(../img/icons/contact.png); }
+
+/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------- ACTIONS -------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.push_back {
+  pointer-events: none;
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -o-transform-origin: right center;
+  transform-origin: right center;
+  -webkit-transform: translateX(100px) rotateY(-25deg) scale(0.7);
+  -moz-transform: translateX(100px) rotateY(-25deg) scale(0.7);
+  -ms-transform: translateX(100px) rotateY(-25deg) scale(0.7);
+  -o-transform: translateX(100px) rotateY(-25deg) scale(0.7);
+  -transform: translateX(100px) rotateY(-25deg) scale(0.7); }
+
+.sidebar_show {
+  left: 0px !important; }
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*# sourceMappingURL=style.css.map */
