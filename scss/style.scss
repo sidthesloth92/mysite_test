@@ -1,33 +1,27 @@
 @import 'reset';
-/*-------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------- MIXINS --------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------*/
-
-@mixin transform-origin($x-value:center, $y-value:center) {
-    -webkit-transform-origin: $x-value $y-value;
-    -moz-transform-origin: $x-value $y-value;
-    -ms-transform-origin: $x-value $y-value;
-    -o-transform-origin: $x-value $y-value;
-    transform-origin: $x-value $y-value;
-}
-
-@mixin transform($value) {
-    -webkit-transform: $value;
-    -moz-transform: $value;
-    -ms-transform: $value;
-    -o-transform: $value;
-    -transform: $value;
-}
-/*-------------------------------------------------------------------------------------------------*/
+@import 'mixins';
 /*-------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------- PAGE COLORS ---------------------------------------*/
 /*-------------------------------------------------------------------------------------------------*/
+/* 
+#2A2B30 velvet black rgba(31, 32, 36, 0.8);
+#24252a dar velvet black
+rgb(92, 94, 220) purple
+rgb(230, 233, 240) codrops light gray
+*/
 
-$fixed-navbar-background: rgba(5, 5, 5, 0.8);
-$sidebar-background: $fixed-navbar-background;
-$header-background: orange;
-$main-section-background: coral;
-$footer-background: mediumslateblue;
+$fixed-navbar-background: rgba(31, 32, 36, 1);
+$sidebar-background: rgba(31, 32, 36, 0.4);
+$header-background: rgba(31, 32, 36, 0.8);
+$main-section-background: rgba(230, 233, 240, 1);
+$footer-background: #333;
+/*-------------------------------------------------------------------------------------------------*/
+
+@import 'pages/page';
+@import 'pages/about';
+@import 'pages/projects';
+@import 'pages/blog';
+@import 'pages/sayhi';
 /*-------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------- DEVICE WIDTHS -------------------------------------*/
@@ -44,9 +38,41 @@ $mobile-width: 600px;
     src: url(../fonts/manifesto.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Raleway';
+    src: url(../fonts/raleway.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Great Vibes';
+    src: url(../fonts/greatvibes.otf);
+}
+
+@font-face {
+    font-family: 'Seaside';
+    src: url(../fonts/seaside_resort.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Walkway Bold';
+    src: url(../fonts/Walkway_Bold.ttf) format('truetype');
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Walkway SemiBold';
+    src: url(../fonts/Walkway_SemiBold.ttf) format('truetype');
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+html {}
+
 body {
     background-image: url('../img/stars_9.jpg');
-    background-size: cover;  
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {
@@ -70,15 +96,16 @@ body {
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
-                background-image: url('../img/logo.png');
-                background-size: 50px 50px;
+                background-image: url("../img/logo_2.png");
+                background-size: 50px;
                 background-repeat: no-repeat;
-                background-position-y: -1px;
                 margin: 5px auto 0px;
+                border: 1px solid white;
+                background-position-x: -2px;
             }
             .navbar_menu_entry {
                 position: absolute;
-                top: 15px;
+                top: 20px;
                 left: 15px;
                 background: url(../img/icons/menu.png);
                 cursor: pointer;
@@ -95,24 +122,18 @@ body {
         /*-------------------------------------------------------------------------------------------------*/
         
         .rest_of_body {
-            /*-------------------------------------------------------------------------------------------------*/
-            /*-------------------------------------------- HEADER STYLING -------------------------------------*/
-            /*-------------------------------------------------------------------------------------------------*/
+            background: yellow;
+            position: relative;
+            margin-top: 60px;
             
-            header {
-                background: rgba(0, 0, 0, 0.2);
-                height: 500px;
-                margin-top: 60px;
-                -webkit-filter: grayscale(1);
-            }
             /*-------------------------------------------------------------------------------------------------*/
             /*-------------------------------------------------------------------------------------------------*/
             /*-------------------------------------------- MAIN SECTION ---------------------------------------*/
             /*-------------------------------------------------------------------------------------------------*/
             
             .main_section {
-                background: $main-section-background;
-                height: 500px;
+                background: blue;
+                width: 100%;
             }
             /*-------------------------------------------------------------------------------------------------*/
             /*-------------------------------------------------------------------------------------------------*/
@@ -133,10 +154,10 @@ body {
     .sidebar {
         position: fixed;
         color: white;
-        font-face: 'Manifesto';
-        font-family: 'Manifesto';
+        font-family: 'Walkway SemiBold';
+        letter-spacing: 2px;
+        .navbar_items {}
     }
-
     @media screen and (max-width: $mobile-width) {
         .sidebar {
             width: 100%;
@@ -144,38 +165,60 @@ body {
             left: -100%;
             top: 0px;
             background: rgba(0, 0, 0, 0.1);
-            transition: .3s all ease-out;
+            transition: .5s all ease-out;
             .side_menu {
-                width: 50%;
+                width: 100%;
                 height: 100%;
                 background: $sidebar-background;
                 box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
-                border-right: 3px solid white;
+                //border-right: 3px solid white;
+                position: relative;
                 .navbar_menu_back_button {
                     display: block;
                     float: right;
-                    background-image: url(../img/icons/cancel.png);
+                    background-image: url(../img/icons/multiply.png);
                     margin: 10px;
                     cursor: pointer;
+                    height: 30px !important;
+                    width: 30px !important;
+                    background-size: 30px !important;
                     margin-bottom: 50px;
                 }
-
                 .navbar_item_icon {
                     margin-right: 15px;
                     vertical-align: sub;
                 }
-
+                ul {
+                    position: relative;
+                }
+                .navbar_items {
+                    position: absolute;
+                    display: block;
+                    height: 50px;
+                    box-sizing: border-box;
+                    width: 100%;
+                    @include transform-origin(left, center);
+                    @include transform(rotateY(90deg));
+                    padding: 10px 15px;
+                    transition: .3s all linear;
+                }
                 .sidebar_list_left {
                     margin-top: 30px;
                     clear: both;
+                    .navbar_items:nth-child(1) {
+                        top: 0px;
+                    }
+                    .navbar_items:nth-child(2) {
+                        top: 50px;
+                    }
                 }
-                .sidebar_list_right {}
-                .navbar_items {
-                    display: block;
-                    margin: 15px;
-                    line-height: 30px;
-                    font-size: 14px;
-                    vertical-align: top;
+                .sidebar_list_right {
+                    .navbar_items:nth-child(1) {
+                        top: 100px;
+                    }
+                    .navbar_items:nth-child(2) {
+                        top: 150px;
+                    }
                 }
             }
         }
@@ -183,29 +226,57 @@ body {
     @media screen and (min-width: $mobile-width + 1) {
         .sidebar {
             width: 100%;
-            height: 60px;
             top: 0;
             left: 0;
             background: rgba(0, 0, 0, 0);
-            box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            box-shadow: 3px 0px 10px 1px rgba(0, 0, 0, 0.2);
             .side_menu {
                 .navbar_menu_back_button {
                     display: none;
                 }
-
                 .navbar_item_icon {
                     display: none;
                 }
-
                 ul {
-                    margin: 16px 0px;
+                    height: 60px
                 }
                 .navbar_items {
                     display: inline-block;
-                    padding: 0px 15px;
-                    line-height: 30px;
-                    font-size: 20px;
-
+                    font-size: 16px;
+                    width: 100px;
+                    height: 40px;
+                    margin-top: 10px;
+                    padding-top: 12px;
+                    text-align: center;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    position: relative;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    &:hover:before {
+                        left: 0;
+                    }
+                    &:hover:after {
+                        right: 0;
+                    }
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        background: white;
+                        transition: all .3s ease-out;
+                    }
+                    &:before {
+                        left: -100%;
+                        top: 0;
+                    }
+                    &:after {
+                        right: -100%;
+                        bottom: 0;
+                    }
                 }
                 .sidebar_list_left {
                     width: 45%;
@@ -224,16 +295,15 @@ body {
     }
 }
 /*-------------------------------------------------------------------------------------------------*/
-
 /*-------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------- GENERAL -------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------*/
 
 .icon {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-size: 30px 30px !important;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px !important;
     background-repeat: no-repeat;
 }
 
@@ -252,9 +322,7 @@ body {
 .contact_icon {
     background-image: url(../img/icons/contact.png);
 }
-
 /*-------------------------------------------------------------------------------------------------*/
-
 /*-------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------- ACTIONS -------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------*/
@@ -267,5 +335,9 @@ body {
 
 .sidebar_show {
     left: 0px !important;
+}
+
+.navbar_item_reveal {
+    @include transform(rotateY(0deg) !important);
 }
 /*-------------------------------------------------------------------------------------------------*/

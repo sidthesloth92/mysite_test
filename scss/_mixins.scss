@@ -1,0 +1,15 @@
+@mixin transform-origin($x-value:center, $y-value:center) {
+    -webkit-transform-origin: $x-value $y-value;
+    -moz-transform-origin: $x-value $y-value;
+    -ms-transform-origin: $x-value $y-value;
+    -o-transform-origin: $x-value $y-value;
+    transform-origin: $x-value $y-value;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+    transform: $value;
+}

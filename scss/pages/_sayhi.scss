@@ -1,0 +1,120 @@
+$contact-wrapper-height: 70px;
+$contact-form-element-width: 60%;
+.main_section {
+    .say-hi {
+        background-color: springgreen;
+        .contact_form_wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: #24252a;
+            overflow: hidden;
+            .contact_form_element {
+                position: absolute;
+                width: 100%;
+                transition: .5s all ease-in-out;
+                & > * {
+                    box-sizing: border-box;
+                    height: 100%;
+                    margin: 0 auto;
+                    display: block;
+                    padding: 0px 10px;
+                    font-family: 'Walkway SemiBold', sans-serif;
+                    box-shadow: 0px 2px 3px 1px rgba(92, 94, 220, 0.2);
+                }
+                label {
+                    position: absolute;
+                    top: 0;
+                    color: black;
+                    background: rgba(220, 220, 220, 1);
+                    color: rgb(92, 94, 220);
+                    pointer-events: none;
+                    transition: .2s all ease-out;
+                }
+                input {
+                    background: #333;
+                    color: white;
+                    border: 0px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+            .contact_progress_button {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-size: 30px 30px;
+                position: absolute;
+            }
+            .backward {
+                background-image: url('../img/up_arrow.png');
+                top: calc(50% - 30px);
+            }
+            .forward {
+                background-image: url('../img/down_arrow.png');
+                top: calc(50%);
+            }
+            @media screen and (max-width: 600px) {
+                .contact_form_element {
+                    height: 50px;
+                    top: calc(50% - 25px);
+                    & > * {
+                        width: 70%;
+                        font-size: 20px;
+                    }
+                    label {
+                        left: 15%;
+                        padding-top: 16px;
+                    }
+                    input {
+                        &:focus + label {
+                            top: -50px;
+                        }
+                        &:valid + label {
+                            top: -50px;
+                        }
+                    }
+                }
+                .contact_progress_button {
+                    right: calc(15% - 30px - 10px);
+                }
+                .backward {}
+                .forward {}
+            }
+            @media screen and (min-width: 601px) {
+                .contact_form_element {
+                    height: 70px;
+                    top: calc(50% - 35px);
+                    & > * {
+                        width: 60%;
+                        font-size: 30px;
+                    }
+                    label {
+                        left: 20%;
+                        padding-top: 24px;
+                    }
+                    input {
+                        &:focus + label {
+                            top: -70px;
+                        }
+                        &:valid + label {
+                            top: -70px;
+                        }
+                    }
+                }
+                .contact_progress_button {
+                    right: calc(20% - 30px - 10px);
+                }
+                .backward {}
+                .forward {}
+            }
+        }
+        .contact_past {
+            top: -100% !important;
+        }
+        .contact_future {
+            top: 200% !important;
+        }
+    }
+}

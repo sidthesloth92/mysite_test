@@ -1,0 +1,13 @@
+.main_section {
+    .page {
+    	position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+
+
+        .page_content {
+        	min-height: 100%;
+        }
+    }
+}

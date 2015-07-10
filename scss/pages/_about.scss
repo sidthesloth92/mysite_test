@@ -1,0 +1,42 @@
+.main_section {
+    .about {
+        left: 0;
+
+        .header {
+            width: 100%;
+            height: 500px;
+            background: $header-background;
+            color: white;
+            font-family: 'Walkway Bold';
+            letter-spacing: 2px;
+            .show_case {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                box-sizing: border-box;
+                text-transform: uppercase;
+                padding-top: 200px;
+                .name_container {
+                    .name {
+                        font-size: 3rem;
+                        font-weight: bold;
+                    }
+                    .first {
+                        margin-right: 30px;
+                    }
+                    .second {}
+                }
+                .profession_container {
+                    margin-top: 5px;
+                    .dot {
+                        width: 5px;
+                        height: 5px;
+                        background-color: white;
+                        display: inline-block;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
