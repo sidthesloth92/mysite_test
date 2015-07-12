@@ -83,7 +83,7 @@ body {
     perspective: 500px;
     .main_body_container {
         overflow: scroll;
-        transition: .3s all ease-out;
+        @include transition(.3s all ease-out);
         .fixed_navbar {
             position: fixed;
             top: 0;
@@ -124,6 +124,7 @@ body {
         .rest_of_body {
             background: yellow;
             position: relative;
+            overflow: hidden;
             margin-top: 60px;
             
             /*-------------------------------------------------------------------------------------------------*/
@@ -165,7 +166,7 @@ body {
             left: -100%;
             top: 0px;
             background: rgba(0, 0, 0, 0.1);
-            transition: .5s all ease-out;
+            @include transition(.5s all ease-out);
             .side_menu {
                 width: 100%;
                 height: 100%;
@@ -200,7 +201,7 @@ body {
                     @include transform-origin(left, center);
                     @include transform(rotateY(90deg));
                     padding: 10px 15px;
-                    transition: .3s all linear;
+                    @include transition(.3s all linear);
                 }
                 .sidebar_list_left {
                     margin-top: 30px;
@@ -267,7 +268,7 @@ body {
                         width: 100%;
                         height: 1px;
                         background: white;
-                        transition: all .3s ease-out;
+                        @include transition(all .3s ease-out);
                     }
                     &:before {
                         left: -100%;

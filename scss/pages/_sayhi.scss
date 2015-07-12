@@ -2,17 +2,17 @@ $contact-wrapper-height: 70px;
 $contact-form-element-width: 60%;
 .main_section {
     .say-hi {
-        background-color: springgreen;
+        background: #24252a;;
         .contact_form_wrapper {
-            position: relative;
+            position: absolute;
             height: 100%;
             width: 100%;
-            background: #24252a;
+            
             overflow: hidden;
             .contact_form_element {
                 position: absolute;
                 width: 100%;
-                transition: .5s all ease-in-out;
+                @include transition(.5s all ease-in-out);
                 & > * {
                     box-sizing: border-box;
                     height: 100%;
@@ -29,7 +29,7 @@ $contact-form-element-width: 60%;
                     background: rgba(220, 220, 220, 1);
                     color: rgb(92, 94, 220);
                     pointer-events: none;
-                    transition: .2s all ease-out;
+                    @include transition(.2s all ease-out);
                 }
                 input {
                     background: #333;
@@ -46,6 +46,7 @@ $contact-form-element-width: 60%;
                 height: 30px;
                 background-size: 30px 30px;
                 position: absolute;
+                cursor: pointer;
             }
             .backward {
                 background-image: url('../img/up_arrow.png');
@@ -54,6 +55,26 @@ $contact-form-element-width: 60%;
             .forward {
                 background-image: url('../img/down_arrow.png');
                 top: calc(50%);
+            }
+            .contact_submit_button {
+                display: inline-block;
+                width: 120px;
+                height: 40px;
+                box-sizing: border-box;
+                background: transparent;
+                position: absolute;
+                left: calc(50% - 60px);
+                top: calc(50% + 25px + 20px);
+                color: rgb(92, 94, 220);
+                border: 1px solid rgb(92, 94, 220);
+                text-transform: uppercase;
+                font-family: 'Walkway SemiBold', sans-serif;
+                font-size: 18px;
+                overflow: hidden;
+                cursor: pointer;
+                &:focus {
+                    outline: 0px;
+                }
             }
             @media screen and (max-width: 600px) {
                 .contact_form_element {
@@ -116,5 +137,50 @@ $contact-form-element-width: 60%;
         .contact_future {
             top: 200% !important;
         }
+        .contact_submit_banner {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out;
+
+            .contact_submit_svg {
+            	width: 100%;
+            	height: 100%;
+            }
+        }
+    }
+}
+
+.curtain_button {
+    &:before, &:after {
+        content: 'SUBMIT';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+        padding-top: 9px;
+        box-sizing: border-box;
+    }
+    &:before {
+        transform-origin: left bottom;
+        transform: rotate(-90deg);
+        color: silver;
+        transition: all .1s ease-out;
+    }
+    &:after {
+        transform-origin: right bottom;
+        transform: rotate(90deg);
+        color: white;
+        transition: all .3s ease-out;
+    }
+    &:hover:before,
+    &:hover:after {
+        transform: rotate(0deg);
     }
 }

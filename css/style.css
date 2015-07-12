@@ -99,21 +99,24 @@ rgb(230, 233, 240) codrops light gray
   background-color: hotpink; }
 
 .main_section .blog {
-  left: 300%;
+  left: 200%;
   background-color: mediumslateblue; }
 
 .main_section .say-hi {
-  background-color: springgreen; }
+  background: #24252a; }
   .main_section .say-hi .contact_form_wrapper {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
-    background: #24252a;
     overflow: hidden; }
     .main_section .say-hi .contact_form_wrapper .contact_form_element {
       position: absolute;
       width: 100%;
-      transition: .5s all ease-in-out; }
+      -webkit-transition: 0.5s all ease-in-out;
+      -moz-transition: 0.5s all ease-in-out;
+      -ms-transition: 0.5s all ease-in-out;
+      -o-transition: 0.5s all ease-in-out;
+      transition: 0.5s all ease-in-out; }
       .main_section .say-hi .contact_form_wrapper .contact_form_element > * {
         box-sizing: border-box;
         height: 100%;
@@ -129,7 +132,11 @@ rgb(230, 233, 240) codrops light gray
         background: gainsboro;
         color: #5c5edc;
         pointer-events: none;
-        transition: .2s all ease-out; }
+        -webkit-transition: 0.2s all ease-out;
+        -moz-transition: 0.2s all ease-out;
+        -ms-transition: 0.2s all ease-out;
+        -o-transition: 0.2s all ease-out;
+        transition: 0.2s all ease-out; }
       .main_section .say-hi .contact_form_wrapper .contact_form_element input {
         background: #333;
         color: white;
@@ -141,13 +148,32 @@ rgb(230, 233, 240) codrops light gray
       width: 30px;
       height: 30px;
       background-size: 30px 30px;
-      position: absolute; }
+      position: absolute;
+      cursor: pointer; }
     .main_section .say-hi .contact_form_wrapper .backward {
       background-image: url("../img/up_arrow.png");
       top: calc(50% - 30px); }
     .main_section .say-hi .contact_form_wrapper .forward {
       background-image: url("../img/down_arrow.png");
       top: calc(50%); }
+    .main_section .say-hi .contact_form_wrapper .contact_submit_button {
+      display: inline-block;
+      width: 120px;
+      height: 40px;
+      box-sizing: border-box;
+      background: transparent;
+      position: absolute;
+      left: calc(50% - 60px);
+      top: calc(50% + 25px + 20px);
+      color: #5c5edc;
+      border: 1px solid #5c5edc;
+      text-transform: uppercase;
+      font-family: 'Walkway SemiBold', sans-serif;
+      font-size: 18px;
+      overflow: hidden;
+      cursor: pointer; }
+      .main_section .say-hi .contact_form_wrapper .contact_submit_button:focus {
+        outline: 0px; }
     @media screen and (max-width: 600px) {
       .main_section .say-hi .contact_form_wrapper .contact_form_element {
         height: 50px;
@@ -184,6 +210,41 @@ rgb(230, 233, 240) codrops light gray
     top: -100% !important; }
   .main_section .say-hi .contact_future {
     top: 200% !important; }
+  .main_section .say-hi .contact_submit_banner {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out; }
+    .main_section .say-hi .contact_submit_banner .contact_submit_svg {
+      width: 100%;
+      height: 100%; }
+
+.curtain_button:before, .curtain_button:after {
+  content: 'SUBMIT';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  padding-top: 9px;
+  box-sizing: border-box; }
+.curtain_button:before {
+  transform-origin: left bottom;
+  transform: rotate(-90deg);
+  color: silver;
+  transition: all .1s ease-out; }
+.curtain_button:after {
+  transform-origin: right bottom;
+  transform: rotate(90deg);
+  color: white;
+  transition: all .3s ease-out; }
+.curtain_button:hover:before, .curtain_button:hover:after {
+  transform: rotate(0deg); }
 
 /*-------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------*/
@@ -231,7 +292,11 @@ body {
   /*-------------------------------------------------------------------------------------------------*/ }
   .container .main_body_container {
     overflow: scroll;
-    transition: .3s all ease-out;
+    -webkit-transition: 0.3s all ease-out;
+    -moz-transition: 0.3s all ease-out;
+    -ms-transition: 0.3s all ease-out;
+    -o-transition: 0.3s all ease-out;
+    transition: 0.3s all ease-out;
     /*-------------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------- REST OF BODY --------------------------------------*/
@@ -266,6 +331,7 @@ body {
     .container .main_body_container .rest_of_body {
       background: yellow;
       position: relative;
+      overflow: hidden;
       margin-top: 60px;
       /*-------------------------------------------------------------------------------------------------*/
       /*-------------------------------------------------------------------------------------------------*/
@@ -293,7 +359,11 @@ body {
       left: -100%;
       top: 0px;
       background: rgba(0, 0, 0, 0.1);
-      transition: .5s all ease-out; }
+      -webkit-transition: 0.5s all ease-out;
+      -moz-transition: 0.5s all ease-out;
+      -ms-transition: 0.5s all ease-out;
+      -o-transition: 0.5s all ease-out;
+      transition: 0.5s all ease-out; }
       .container .sidebar .side_menu {
         width: 100%;
         height: 100%;
@@ -332,7 +402,11 @@ body {
           -o-transform: rotateY(90deg);
           transform: rotateY(90deg);
           padding: 10px 15px;
-          transition: .3s all linear; }
+          -webkit-transition: 0.3s all linear;
+          -moz-transition: 0.3s all linear;
+          -ms-transition: 0.3s all linear;
+          -o-transition: 0.3s all linear;
+          transition: 0.3s all linear; }
         .container .sidebar .side_menu .sidebar_list_left {
           margin-top: 30px;
           clear: both; }
@@ -380,7 +454,11 @@ body {
           width: 100%;
           height: 1px;
           background: white;
-          transition: all .3s ease-out; }
+          -webkit-transition: all 0.3s ease-out;
+          -moz-transition: all 0.3s ease-out;
+          -ms-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out; }
         .container .sidebar .side_menu .navbar_items:before {
           left: -100%;
           top: 0; }
